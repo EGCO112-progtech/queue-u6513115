@@ -1,7 +1,7 @@
 
 
 typedef struct Queue{
-   order *head,*tail;
+   order *headlPtr,*tailPtr;
     int size;
 }order;
 
@@ -25,8 +25,24 @@ if(new_node){
 
 int dequeue_struct(Queue *q){
    NodePtr t=q->headPtr;
+  int price;
    if(q->size>0){
-     int value= t->data;
+     switch(t->order_number)
+       {
+         case 1 : 
+           printf("Ramen");
+           price = 100*t->q;
+           break;
+         case 2 : 
+           printf("Somtum");
+           price = 20*t->q;
+           break;
+         case 1 : 
+           printf("Fried Chicken");
+           price = 50*t->q;
+           break;
+       }
+     //int value= t->data;
      q->headPtr=t->nextPtr;
      if(q->headPtr==NULL)
      {
@@ -35,7 +51,7 @@ int dequeue_struct(Queue *q){
     q->size--;
     free(t);
          /*Finish dequeue */
-   return value;
+   return price;
    }
    printf("Empty queue");
    return 0;

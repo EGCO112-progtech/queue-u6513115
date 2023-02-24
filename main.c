@@ -20,7 +20,7 @@ int main(int argc , char **argv) {
  for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
             x=dequeue_struct(&headPtr,&tailPtr);
-            printf("dequeing %d\n",x);
+            printf("Order is %d\n",x);
         }
         else {
        enqueue_struct(&headPtr,&tailPtr, atoi(argv[i]));
