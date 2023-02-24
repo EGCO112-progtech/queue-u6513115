@@ -1,9 +1,7 @@
-
-
-typedef struct Queue{
-   order *headlPtr,*tailPtr;
-    int size;
-}order;
+typedef struct {
+	 NodePtr headPtr,tailPtr;
+	int size;
+}Queue;
 
 
 void enqueue_struct(Queue* q, int x,int y){
@@ -11,7 +9,7 @@ void enqueue_struct(Queue* q, int x,int y){
 if(new_node){ 
   /*Finish enqueue */
   new_node->order_number=x; //เอา Node มาจาก Node.h
-  new_node->q=y;
+  new_node->qty=y;
   new_node->nextPtr=NULL;
   if(q->headPtr==NULL)
     q->headPtr = new_node;
@@ -23,26 +21,38 @@ if(new_node){
 }
 
 
-int dequeue_struct(Queue *q){
+int dequeue_struct(Queue *q,int cusno){
    NodePtr t=q->headPtr;
-  int price;
+    int price;
+  switch(t->order_number)
+    {
+      case 1:
+        printf("My order is %d\n",t->order_number);
+        printf("Customer No: %d\n",cusno);
+        printf("Ramen\n");
+      price = t->qty*100;
+      break;
+
+      case 2: 
+        printf("My order is %d\n",t->order_number);
+        printf("Customer No: %d\n",cusno);
+        printf("Somtum\n");
+      price = t->qty*20;
+      break;
+
+      case 3: 
+        printf("My order is %d\n",t->order_number);
+        printf("Customer No: %d\n",cusno);
+        printf("Fried Chicken\n");
+        price = t->qty*50;
+        break;
+
+      default:
+        printf("No Food");
+    }
    if(q->size>0){
-     switch(t->order_number)
-       {
-         case 1 : 
-           printf("Ramen");
-           price = 100*t->q;
-           break;
-         case 2 : 
-           printf("Somtum");
-           price = 20*t->q;
-           break;
-         case 1 : 
-           printf("Fried Chicken");
-           price = 50*t->q;
-           break;
-       }
      //int value= t->data;
+
      q->headPtr=t->nextPtr;
      if(q->headPtr==NULL)
      {
@@ -56,4 +66,3 @@ int dequeue_struct(Queue *q){
    printf("Empty queue");
    return 0;
 }
-
