@@ -27,28 +27,31 @@ int dequeue_struct(Queue *q,int cusno){
   switch(t->order_number)
     {
       case 1:
-        printf("My order is %d\n",t->order_number);
+        
         printf("Customer No: %d\n",cusno);
         printf("Ramen\n");
       price = t->qty*100;
       break;
 
       case 2: 
-        printf("My order is %d\n",t->order_number);
+        
         printf("Customer No: %d\n",cusno);
         printf("Somtum\n");
       price = t->qty*20;
       break;
 
       case 3: 
-        printf("My order is %d\n",t->order_number);
+        
         printf("Customer No: %d\n",cusno);
         printf("Fried Chicken\n");
         price = t->qty*50;
         break;
 
       default:
-        printf("No Food");
+        printf("No Food\n");
+        price = 0;
+        break;
+      
     }
    if(q->size>0){
      //int value= t->data;

@@ -21,6 +21,7 @@ int main(int argc , char **argv) {
  for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
             x=dequeue_struct(&q,cusno);
+
           if(x>0)
           {
             printf("You have to pay %d\n",x);
@@ -30,7 +31,11 @@ int main(int argc , char **argv) {
               if(y-x==0)
                 printf("Thank you\n");
               else if(y-x>0)
+              {
+                printf("Thank you\n");
                 printf("Change is %d\n",y-x);
+              }
+                
               
             }while((y-x)<0);
             cusno++;
@@ -38,7 +43,9 @@ int main(int argc , char **argv) {
             
         }
         else {
+          
        enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
+          printf("My order is %d\n",atoi(argv[i]));
           i++;
           
            
@@ -46,12 +53,15 @@ int main(int argc , char **argv) {
  }
 
   if(q.size>0)
+  {
     printf("=================\nThere are %d ppl left in the queue\n",q.size);
+  }
+    
 
   printf("Clearing queue\n");
   while(q.size>0)
     {
-      dequeue_struct(&q,cusno)
+      dequeue_struct(&q,cusno);
     }
   return 0;
 }
