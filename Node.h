@@ -4,8 +4,7 @@
 //
 //  Created by Mingmanas Sivaraksa on 5/2/2566 BE.
 //
-#include <stdio.h>
-#include <stdlib.h>
+
 
 #ifndef Node_h
 #define Node_h
@@ -27,25 +26,30 @@ if(new_node){
   new_node->data = x;
   new_node->nextPtr = NULL;
   if(*head==NULL)
-    *head = new_node;
+  {
+    *head = new_node; 
+  }
   else
+  {
     (*tail)->nextPtr = new_node;
+  }
+  
+  *tail=new_node;
  }
 }
 
 
 int dequeue(NodePtr* head, NodePtr* tail){
   NodePtr t=*head;
-   if(t){
-   int value= t->data;
-   /* Finish dequeue*/
+   if(t)
+   {
+     int value= t->data;
+     /* Finish dequeue*/
      *head = t->nextPtr;
-     if(*head==NULL)
-       *tail=NULL;
+     if(*head==NULL) *tail=NULL;
      free(t);
-       
-       
-   return value;
+  
+     return value;
    }
    printf("Empty queue");
    return 0;
