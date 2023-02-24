@@ -1,16 +1,17 @@
 
 
-typedef struct {
-	 NodePtr headPtr,tailPtr;
-	int size;
-}Queue;
+typedef struct Queue{
+   order *head,*tail;
+    int size;
+}order;
 
 
-void enqueue_struct(Queue* q, int x){
+void enqueue_struct(Queue* q, int x,int y){
   Node *new_node=(Node*) malloc(sizeof(Node));
 if(new_node){ 
   /*Finish enqueue */
-  new_node->data=x; //เอา Node มาจาก Node.h
+  new_node->order_number=x; //เอา Node มาจาก Node.h
+  new_node->q=y;
   new_node->nextPtr=NULL;
   if(q->headPtr==NULL)
     q->headPtr = new_node;

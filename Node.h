@@ -9,11 +9,11 @@
 #ifndef Node_h
 #define Node_h
 
-struct node
-{
-    int data;
-    struct node *nextPtr;
-};
+typedef struct node{
+   struct node* next;
+   int order_number;
+   int q;
+}order;
 
 typedef struct node Node;
 typedef struct node* NodePtr;
